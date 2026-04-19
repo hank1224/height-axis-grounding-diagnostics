@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "height-axis-grounding-diagnostics"
+version = "0.1.0"
+description = "Benchmark suite for vision models on electronic package engineering drawings."
+readme = "README.md"
+license = {text = "CC-BY-SA-4.0 WITH KiCad-libraries-exception"}
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
