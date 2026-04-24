@@ -24,7 +24,7 @@ They do not contain benchmark conclusions.
 
 ## 2. Task-to-Question Capability Maps
 
-These files record which research questions each task can answer, what scope is required, and which result section should be consulted in the campaign report.
+These files record which research questions each task can answer and what scope is required.
 
 - [experiment_claims/README.md](experiment_claims/README.md)
 - [experiment_claims/package_target_extraction.md](experiment_claims/package_target_extraction.md)
@@ -33,4 +33,4 @@ These files record which research questions each task can answer, what scope is 
 - [experiment_claims/view_role_classification.md](experiment_claims/view_role_classification.md)
 - [experiment_claims/pcb_face_axis_mapping.md](experiment_claims/pcb_face_axis_mapping.md)
 
-Capability maps do not contain run-specific verdicts, result numbers, or citation-ready conclusions. The authoritative results live in the single campaign report at [../experiment_results/2026-04-16_full_suite/README.md](../experiment_results/2026-04-16_full_suite/README.md).
+Capability maps do not contain run-specific verdicts, result numbers, or citation-ready conclusions.

@@ -1,6 +1,6 @@
 # Height-Axis Grounding Diagnostics
 
-Height-Axis Grounding Diagnostics studies how vision-language models interpret electronic package drawings under controlled diagnostic conditions. It separates task implementation specs, analyzer outputs, and a citation-ready single campaign result report so the benchmark can support both engineering work and thesis writing.
+Height-Axis Grounding Diagnostics studies how vision-language models interpret electronic package drawings under controlled diagnostic conditions. It separates task implementation specs, analyzer outputs, and task-to-question capability maps so the benchmark can support both engineering work and thesis writing.
 
 ## At a Glance
 
@@ -14,7 +14,6 @@ Height-Axis Grounding Diagnostics studies how vision-language models interpret e
 ## Start Here
 
 - If you want the overall documentation structure, start at [spec/README.md](spec/README.md).
-- If you want the citation-ready single campaign result report, start at [experiment_results/2026-04-16_full_suite/README.md](experiment_results/2026-04-16_full_suite/README.md).
 - If you want to understand which task answers which research question, start at [spec/experiment_claims/README.md](spec/experiment_claims/README.md).
 - If you want implementation details for a task, start at [spec/README.md](spec/README.md) and then jump to the relevant file under `spec/implementation/`.
 
@@ -34,7 +33,8 @@ copy `.env.example` to `.env` and fill in API keys as needed.
 
 For Ollama, start the local service with `ollama serve`, pull a vision-capable model,
 and set `OLLAMA_MODEL` or pass `--ollama-model`. The default Ollama API base URL is
-`http://localhost:11434/api`, and the default Ollama concurrency is `1`.
+`http://localhost:11434/api`, and the default Ollama concurrency is `1`. When overriding
+the base URL, either `http://localhost:11434` or `http://localhost:11434/api` is accepted.
 
 ## Repository Map
 
@@ -42,7 +42,10 @@ and set `OLLAMA_MODEL` or pass `--ollama-model`. The default Ollama API base URL
 - `runs/`: raw benchmark runs
 - `analysis/`: analyzer outputs derived from `runs/`
 - `spec/`: implementation specs plus task-to-question capability maps
-- `experiment_results/`: single campaign result report for direct citation; raw evidence remains in `runs/` and `analysis/`
+
+## Dataset Source
+
+The dataset is derived from STEP files obtained from the KiCad 9.x Library Repositories, specifically the `kicad-packages3D` repository at https://gitlab.com/kicad/libraries/kicad-packages3D. The selected package models were imported into Autodesk Fusion to produce the three-view drawings and dimension annotations used by this benchmark, so the dataset follows the Creative Commons licensing terms applied to the KiCad library source material.
 
 ## License
 

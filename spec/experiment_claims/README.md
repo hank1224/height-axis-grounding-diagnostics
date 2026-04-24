@@ -6,7 +6,6 @@
 
 - 幫文件作者快速定位哪個 task 可以回答哪個 question
 - 記錄每個 question 需要的 variant / comparison / prompt scope
-- 提供對應的 authoritative campaign report section 入口
 
 這一層不包含：
 
@@ -14,10 +13,6 @@
 - 類似 verdict label 的狀態欄位
 - 分數、分子分母或例證數字
 - 可直接引用到論文的結果結論
-
-authoritative 的單一 campaign result report 請看：
-
-- [../../experiment_results/2026-04-16_full_suite/README.md](../../experiment_results/2026-04-16_full_suite/README.md)
 
 ## Task Capability Maps
 

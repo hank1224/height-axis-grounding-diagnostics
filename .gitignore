@@ -1,7 +1,22 @@
 .env
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
 .venv/
+
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
 runs/
 analysis/

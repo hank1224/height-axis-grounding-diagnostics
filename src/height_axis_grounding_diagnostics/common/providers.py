@@ -18,6 +18,13 @@ from height_axis_grounding_diagnostics.common.io_utils import (
 DEFAULT_OLLAMA_BASE_URL = "http://localhost:11434/api"
 
 
+def normalize_ollama_base_url(base_url: str | None) -> str:
+    normalized = (base_url or DEFAULT_OLLAMA_BASE_URL).rstrip("/")
+    if not normalized.endswith("/api"):
+        normalized = f"{normalized}/api"
+    return normalized
+
+
 @dataclass(frozen=True)
 class ProviderSpec:
     name: str
@@ -461,7 +468,7 @@ class OllamaClient(ProviderClient):
             api_key,
             timeout_seconds,
             temperature,
-            base_url=base_url or DEFAULT_OLLAMA_BASE_URL,
+            base_url=normalize_ollama_base_url(base_url),
         )
         try:
             import requests  # type: ignore
@@ -471,7 +478,7 @@ class OllamaClient(ProviderClient):
                 "Install requirements and run with `./.venv/bin/python`."
             ) from exc
         self._requests = requests
-        self.base_url = (self.base_url or DEFAULT_OLLAMA_BASE_URL).rstrip("/")
+        self.base_url = normalize_ollama_base_url(self.base_url)
 
     def run(self, *, prompt_text: str, image_path: Path) -> dict[str, Any]:
         mime_type, image_b64 = encode_image_to_base64(image_path)
@@ -486,6 +493,7 @@ class OllamaClient(ProviderClient):
                 }
             ],
             "stream": False,
+            "think": False,
             "options": {
                 "temperature": self.temperature,
             },
@@ -534,6 +542,7 @@ class OllamaClient(ProviderClient):
                 "mime_type": mime_type,
                 "temperature": self.temperature,
                 "base_url": self.base_url,
+                "think": False,
                 "structured_output": False,
             },
         }
